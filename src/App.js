@@ -16,7 +16,7 @@ function App({ auth, setStocksData }) {
         setStocksData(response);
       });
     }
-  }, [auth.token]);
+  }, [auth.token, setStocksData]);
 
   return (
     <div className="app">

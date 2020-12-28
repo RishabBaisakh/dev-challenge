@@ -4,7 +4,7 @@ const initialState = {
   data: null,
 };
 
-export default function (state = initialState, action) {
+export default function stock(state = initialState, action) {
   if (action.type === SET_STOCKS_DATA) {
     const { data } = action.payload;
     return { data };
