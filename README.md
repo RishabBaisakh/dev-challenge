@@ -5,3 +5,7 @@ Redux is used for state management, along with React-Redux as the UI binding lib
 # to run the app,
 
 => npm start
+
+Make sure to install the dependencies before running the app.
+
+=> npm install
