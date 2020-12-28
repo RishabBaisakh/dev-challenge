@@ -1,0 +1,37 @@
+.login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.login > .MuiSvgIcon-root {
+  background-color: var(--app-color);
+  padding: 15px;
+  font-size: 50px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 1px 1px 10px gray;
+}
+
+.login > h1 {
+  font-size: 70px;
+}
+
+.login > h3 {
+  font-size: 45px;
+}
+
+.login > button {
+  background-color: var(--app-color);
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.login > button:hover {
+  background-color: rgb(189, 19, 53);
+  box-shadow: 1px 1px 2px black;
+}

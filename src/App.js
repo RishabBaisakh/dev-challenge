@@ -7,19 +7,14 @@ import Chart from "./components/Chart";
 import { setStocksData } from "./redux/actions";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Table from "./components/MyTable";
+import getStocksData from "./marketstack";
 
 function App({ auth, setStocksData }) {
   useEffect(() => {
     if (auth.token != null) {
-      (async () => {
-        const res = await fetch(
-          "http://api.marketstack.com/v1/eod/2020-12-09?access_key=aa8f23728ea519f5821f43a6f4c68603&symbols=AAPL,TSLA,NFLX"
-        );
-        const resJSON = await res.json();
-
-        const data = resJSON.data;
-        setStocksData(data);
-      })();
+      getStocksData().then((response) => {
+        setStocksData(response);
+      });
     }
   }, [auth.token]);
 

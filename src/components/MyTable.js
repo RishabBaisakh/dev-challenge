@@ -1,7 +1,6 @@
 import React from "react";
 import "./MyTable.css";
 import { connect } from "react-redux";
-
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";

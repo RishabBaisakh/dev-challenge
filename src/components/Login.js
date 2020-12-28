@@ -3,6 +3,7 @@ import "./Login.css";
 import { getAuthenticationToken } from "../auth";
 import { connect } from "react-redux";
 import { setToken } from "../redux/actions";
+import ShowChartIcon from "@material-ui/icons/ShowChart";
 
 function Login({ setToken }) {
   const signIn = () => {
@@ -11,9 +12,10 @@ function Login({ setToken }) {
 
   return (
     <div className="login">
+      <ShowChartIcon />
       <h1>Thinking about your next investment?</h1>
-      <h3>Want to see what the market looks like today?</h3>
-      <button onClick={signIn}>Sign In</button>
+      <h3>Want to see what the market looks like?</h3>
+      <button onClick={signIn}>Sign in to StockApp</button>
     </div>
   );
 }
