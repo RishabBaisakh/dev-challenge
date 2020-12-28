@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: crimson;
+  height: 10vh;
+  padding: 10px 50px;
+}
+
+.navbar__left > a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__left > a > .MuiSvgIcon-root {
+  font-size: 50px;
+}
+
+.navbar__left > a > h1 {
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__right > ul {
+  display: flex;
+  margin-right: 10px;
+  border-right: 1px solid white;
+}
+
+.navbar__right > ul > li {
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+.navbar__right > ul > li > a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar__right > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+.navbar__rightLogout {
+  cursor: pointer;
+  padding: 10px;
+  transition: 200ms color ease-in;
+  color: lightgrey;
+  border-radius: 10px;
+}
+
+.navbar__rightLogout:hover {
+  background-color: rgb(201, 24, 59);
+  color: white;
+}

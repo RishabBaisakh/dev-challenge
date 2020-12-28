@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import Login from "./components/Login";
+import { connect } from "react-redux";
+import Navbar from "./components/Navbar";
+import Chart from "./components/Chart";
+import { setStocksData } from "./redux/actions";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+function App({ auth, setStocksData }) {
+  useEffect(() => {
+    if (auth.token != null) {
+      (async () => {
+        const res = await fetch(
+          "http://api.marketstack.com/v1/eod/2020-12-09?access_key=aa8f23728ea519f5821f43a6f4c68603&symbols=AAPL,TSLA,NFLX"
+        );
+        const resJSON = await res.json();
+
+        const data = resJSON.data;
+        setStocksData(data);
+      })();
+    }
+  }, [auth.token]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {auth.token != null ? (
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/:id">
+              <Chart title="" />
+            </Route>
+            <Route path="/">
+              <Chart title="All" />
+            </Route>
+          </Switch>
+        </Router>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { auth: state.token };
+};
+
+export default connect(mapStateToProps, { setStocksData })(App);
