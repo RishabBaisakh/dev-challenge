@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Chart from "./components/Chart";
 import { setStocksData } from "./redux/actions";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Table from "./components/MyTable";
 
 function App({ auth, setStocksData }) {
   useEffect(() => {
@@ -30,9 +31,11 @@ function App({ auth, setStocksData }) {
           <Switch>
             <Route path="/:id">
               <Chart title="" />
+              <Table title="" />
             </Route>
             <Route path="/">
               <Chart title="All" />
+              <Table title="All" />
             </Route>
           </Switch>
         </Router>

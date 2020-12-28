@@ -9,7 +9,6 @@ function Chart({ title, data }) {
 
   if (title !== "All") {
     title = id;
-
     data = data.filter((obj) => obj.symbol === id);
   }
 
