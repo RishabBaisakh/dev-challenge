@@ -3,6 +3,7 @@ import "./Chart.css";
 import { Bar } from "react-chartjs-2";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Chart({ title, data }) {
   const { id } = useParams();
@@ -65,6 +66,15 @@ function Chart({ title, data }) {
 
 const mapStateToProps = (state) => {
   return { data: state.stocks.data };
+};
+
+Chart.defaultProps = {
+  title: "All",
+};
+
+Chart.propTypes = {
+  title: PropTypes.string,
+  data: PropTypes.array,
 };
 
 export default connect(mapStateToProps)(Chart);

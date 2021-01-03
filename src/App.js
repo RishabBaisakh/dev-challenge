@@ -8,6 +8,7 @@ import { setStocksData } from "./redux/actions";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Table from "./components/MyTable";
 import getStocksData from "./marketstack";
+import PropTypes from "prop-types";
 
 function App({ auth, setStocksData }) {
   useEffect(() => {
@@ -16,7 +17,7 @@ function App({ auth, setStocksData }) {
         setStocksData(response);
       });
     }
-  }, [auth.token]);
+  }, [auth.token, setStocksData]);
 
   return (
     <div className="app">
@@ -29,8 +30,8 @@ function App({ auth, setStocksData }) {
               <Table title="" />
             </Route>
             <Route path="/">
-              <Chart title="All" />
-              <Table title="All" />
+              <Chart />
+              <Table />
             </Route>
           </Switch>
         </Router>
@@ -43,6 +44,10 @@ function App({ auth, setStocksData }) {
 
 const mapStateToProps = (state) => {
   return { auth: state.token };
+};
+
+App.propTypes = {
+  token: PropTypes.string,
 };
 
 export default connect(mapStateToProps, { setStocksData })(App);

@@ -4,6 +4,7 @@ import { getAuthenticationToken } from "../auth";
 import { connect } from "react-redux";
 import { setToken } from "../redux/actions";
 import ShowChartIcon from "@material-ui/icons/ShowChart";
+import PropTypes from "prop-types";
 
 function Login({ setToken }) {
   const signIn = () => {
@@ -19,5 +20,9 @@ function Login({ setToken }) {
     </div>
   );
 }
+
+Login.propTypes = {
+  setToken: PropTypes.func,
+};
 
 export default connect(null, { setToken })(Login);

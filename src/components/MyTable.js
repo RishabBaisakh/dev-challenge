@@ -9,6 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function MyTable({ title, data }) {
   const { id } = useParams();
@@ -46,6 +47,15 @@ function MyTable({ title, data }) {
 
 const mapStateToProps = (state) => {
   return { data: state.stocks.data };
+};
+
+MyTable.defaultProps = {
+  title: "All",
+};
+
+MyTable.propTypes = {
+  title: PropTypes.string,
+  data: PropTypes.array,
 };
 
 export default connect(mapStateToProps)(MyTable);
